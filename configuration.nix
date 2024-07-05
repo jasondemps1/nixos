@@ -145,6 +145,8 @@
     neovim
     wget
     steam
+    go
+    emacs
   ];
 
   programs.steam = {
@@ -162,6 +164,7 @@
   };
 
   fonts.packages = with pkgs; [
+    ibm-plex
     jetbrains-mono
     noto-fonts
     noto-fonts-emoji
