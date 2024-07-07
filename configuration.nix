@@ -152,7 +152,7 @@
     steam
     go
     emacs
-    apple-cursor
+
     # Terminals
     alacritty
     foot
@@ -173,10 +173,11 @@
 
     blender
 
-    gnome3.gnome-tweaks
+	gnome3.gnome-tweaks
 
 	neofetch
 	htop
+	gtop
 	fzf
 	fd
 	ripgrep
