@@ -20,6 +20,7 @@
 		playerctl
 		git-lfs
 		glib
+		weechat
 	];
 
 	imports = [

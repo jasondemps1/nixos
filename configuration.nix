@@ -142,6 +142,11 @@
 
   programs.zsh.enable = true;
 
+  # Turn on Hyprland
+  programs.hyprland.enable = true;
+  programs.hyprlock.enable = true;
+  services.hypridle.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
