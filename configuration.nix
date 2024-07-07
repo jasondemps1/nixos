@@ -109,11 +109,15 @@
   sound.enable = true;
   # hardware.pulseaudio.enable = true;
   hardware.pulseaudio.enable = false;
+
+  security.rtkit.enable = true;
+
   # OR
   services.pipewire = {
     enable = true;
     
     alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
   };
 
@@ -164,6 +168,12 @@
     blender
 
     gnome3.gnome-tweaks
+
+	neofetch
+	htop
+	fzf
+	fd
+	ripgrep
   ];
 
   programs.steam = {
