@@ -7,7 +7,7 @@
 
 	imports = [
 		#./bash.nix
-		#./alacritty.nix
+		./alacritty.nix
 		./zsh.nix
 		./starship.nix
 		./git.nix
