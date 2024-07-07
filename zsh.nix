@@ -16,8 +16,8 @@
 
       hms = "home-manager switch --flake ${flakeDir}";
 
-      conf = "nvim ${flakeDir}/nixos/configuration.nix";
-      pkgs = "nvim ${flakeDir}/nixos/packages.nix";
+      conf = "nvim ${flakeDir}/configuration.nix";
+      pkgs = "nvim ${flakeDir}/packages.nix";
 
       ll = "ls -l";
       v = "vim";

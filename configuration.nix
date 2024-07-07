@@ -147,6 +147,23 @@
     steam
     go
     emacs
+    apple-cursor
+    alacritty
+    gparted
+
+    gnumake
+    gcc
+    nodejs
+    (python3.withPackages (ps: with ps; [ requests ]))
+
+    unzip
+    openssl
+    ranger
+    ffmpeg
+
+    blender
+
+    gnome3.gnome-tweaks
   ];
 
   programs.steam = {
@@ -170,6 +187,7 @@
     noto-fonts-emoji
     twemoji-color-font
     font-awesome
+    fira-code
     powerline-fonts
     powerline-symbols
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
