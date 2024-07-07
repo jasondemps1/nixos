@@ -8,6 +8,7 @@
 	imports = [
 		#./bash.nix
 		./alacritty.nix
+		./foot.nix
 		./zsh.nix
 		./starship.nix
 		./git.nix

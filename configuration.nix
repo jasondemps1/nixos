@@ -152,7 +152,10 @@
     go
     emacs
     apple-cursor
+    # Terminals
     alacritty
+    foot
+
     gparted
 
     gnumake
