@@ -21,6 +21,9 @@
 		git-lfs
 		glib
 		weechat
+
+		bibata-cursors
+		tokyo-night-gtk
 	];
 
 	imports = [

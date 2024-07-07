@@ -44,6 +44,8 @@
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
   };
 
   # Proprietary Nvidia Drivers
@@ -145,6 +147,7 @@
   # Turn on Hyprland
   programs.hyprland.enable = true;
   programs.hyprlock.enable = true;
+  security.pam.services.hyprlock = {};
   services.hypridle.enable = true;
 
   # List packages installed in system profile. To search, run:
