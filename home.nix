@@ -22,8 +22,12 @@
 		glib
 		weechat
 
+		wl-clipboard
+
 		bibata-cursors
 		tokyo-night-gtk
+
+		gnome.gnome-themes-extra
 	];
 
 	imports = [
@@ -35,5 +39,6 @@
 		./git.nix
 		./neovim.nix
 		./hyprland.nix
+		./gtk.nix
 	];
 }

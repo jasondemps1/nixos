@@ -139,6 +139,7 @@
       spotify
       discord
       godot_4
+      tree-sitter
     ];
   };
 
@@ -146,9 +147,9 @@
 
   # Turn on Hyprland
   programs.hyprland.enable = true;
-  programs.hyprlock.enable = true;
+  programs.hyprlock.enable = false; #true;
   security.pam.services.hyprlock = {};
-  services.hypridle.enable = true;
+  services.hypridle.enable = false; #true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -202,7 +203,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 7d";
   };
 
   fonts.packages = with pkgs; [
