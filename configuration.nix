@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, pkgs-unstable, ... }: {
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -37,6 +37,8 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
+  # Enable printing
+  services.printing.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -94,6 +96,7 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  programs.dconf.enable = true;
 
   # Video Acceleration
   #hardware.opengl.extraPackets = [];
@@ -137,11 +140,23 @@
       tree
       starship
       spotify
+      thunderbird
       discord
       godot_4
       tree-sitter
+      krita
+      aseprite
+      pkgs-unstable.reaper
+      lmms
+      sbcl
+      pkgs-unstable.vscode
     ];
   };
+
+  # Set our GDM settings correctly (or it'll guess at monitor config and be wrong)
+  #home-manager.users.gdm = {
+  #home.file.".config/monitors.xml".source = "/home/z3/.config/monitors.xml";
+  #};
 
   programs.zsh.enable = true;
 
@@ -150,6 +165,9 @@
   programs.hyprlock.enable = false; #true;
   security.pam.services.hyprlock = {};
   services.hypridle.enable = false; #true;
+
+  # Turn on Sway ( Need Polkit for home-manager Sway config )
+  security.polkit.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -176,6 +194,7 @@
     (python3.withPackages (ps: with ps; [ requests ]))
 
     unzip
+    p7zip
     openssl
     ranger
     ffmpeg
@@ -190,6 +209,9 @@
 	fzf
 	fd
 	ripgrep
+
+    linuxKernel.packages.linux_latest_libre.veikk-linux-driver
+    veikk-linux-driver-gui
   ];
 
   programs.steam = {

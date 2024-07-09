@@ -28,6 +28,9 @@
 		tokyo-night-gtk
 
 		gnome.gnome-themes-extra
+
+		lua
+		rustup
 	];
 
 	imports = [
