@@ -150,6 +150,7 @@
       lmms
       sbcl
       pkgs-unstable.vscode
+      gimp
     ];
   };
 
