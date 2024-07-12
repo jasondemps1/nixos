@@ -129,6 +129,41 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+
+  # Enable docker
+  virtualisation = {
+    docker = {
+      enable = true;
+      storageDriver = "btrfs";
+      rootless = {
+	enable = true;
+	setSocketVariable = true;
+      };
+    };
+   };
+
+  users.extraGroups.docker.members = [ "z3" ];
+
+
+  # Kubernetes (k3s)
+  networking.firewall = {
+    allowedTCPPorts = [
+      6443 # k3s: required so that pods can reach the API server (running on port 6443 by default)
+      # 2379 # k3s, etcd clients: required if using a "High Availability Embedded etcd" configuration
+      # 2380 # k3s, etcd peers: required if using a "High Availability Embedded etcd" configuration
+    ];
+
+    allowedUDPPorts = [
+      # 8472 # k3s, flannel: required if using multi-node for inter-node networking
+    ];
+  };
+
+  services.k3s.enable = true;
+  services.k3s.role = "server";
+  services.k3s.extraFlags = toString [
+    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.z3 = {
     isNormalUser = true;
@@ -151,6 +186,9 @@
       sbcl
       pkgs-unstable.vscode
       gimp
+      k3s
+      k9s
+      dbeaver-bin
     ];
   };
 
@@ -214,6 +252,8 @@
     linuxKernel.packages.linux_latest_libre.veikk-linux-driver
     veikk-linux-driver-gui
   ];
+
+  programs.nix-ld.enable = true;
 
   programs.steam = {
 	enable = true;

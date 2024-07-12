@@ -43,5 +43,6 @@
 		./neovim.nix
 		./hyprland.nix
 		./gtk.nix
+		./gnome-settings.nix
 	];
 }
