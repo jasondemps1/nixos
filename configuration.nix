@@ -189,6 +189,18 @@
       k3s
       k9s
       dbeaver-bin
+      unityhub
+      jetbrains-toolbox
+      dotnetCorePackages.sdk_6_0
+      dotnetPackages.Nuget
+      mono
+      msbuild
+      pkgs-unstable.obsidian
+      xdg-desktop-portal-hyprland
+      obs-studio
+      audacity
+      pkgs-unstable.gleam
+      erlang_27
     ];
   };
 
@@ -204,6 +216,7 @@
   programs.hyprlock.enable = false; #true;
   security.pam.services.hyprlock = {};
   services.hypridle.enable = false; #true;
+  
 
   # Turn on Sway ( Need Polkit for home-manager Sway config )
   security.polkit.enable = true;
@@ -252,6 +265,8 @@
     linuxKernel.packages.linux_latest_libre.veikk-linux-driver
     veikk-linux-driver-gui
   ];
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   programs.nix-ld.enable = true;
 
