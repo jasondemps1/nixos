@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, pkgs-unstable, ... }: {
+{ config, lib, pkgs, ... }: {
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -44,10 +44,10 @@
   services.xserver.enable = true;
 
   # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    #driSupport = true;
+    #driSupport32Bit = true;
   };
 
   # Proprietary Nvidia Drivers
@@ -110,14 +110,10 @@
 
   services.fstrim.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
-  # hardware.pulseaudio.enable = true;
   hardware.pulseaudio.enable = false;
 
+  # rtkit is optional but recommended
   security.rtkit.enable = true;
-
-  # OR
   services.pipewire = {
     enable = true;
 
@@ -167,10 +163,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.z3 = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" "networkmanager" ];
+    extraGroups = [ "wheel" "input" "networkmanager" "audio" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      pkgs-unstable.git-credential-manager
+      #pkgs-unstable.git-credential-manager
+	git-credential-manager
       #pkgs-unstable.neovim
       firefox
       brave
@@ -183,38 +180,45 @@
       tree-sitter
       krita
       aseprite
-      pkgs-unstable.reaper
+      #pkgs-unstable.reaper
+	reaper
       lmms
       sbcl
-      pkgs-unstable.vscode
+      #pkgs-unstable.vscode
+	vscode
       gimp
       k3s
       k9s
       dbeaver-bin
       unityhub
-      pkgs-unstable.jetbrains-toolbox
+      #pkgs-unstable.jetbrains-toolbox
+	jetbrains-toolbox
       #dotnetCorePackages.sdk_6_0
       dotnetCorePackages.sdk_8_0
       dotnetPackages.Nuget
       mono
       msbuild
-      pkgs-unstable.obsidian
+      #pkgs-unstable.obsidian
+	obsidian
       xdg-desktop-portal-hyprland
       obs-studio
       audacity
-      pkgs-unstable.gleam
+      #pkgs-unstable.gleam
+	gleam
       erlang_27
       filezilla
-      pkgs-unstable.xivlauncher
+      #pkgs-unstable.xivlauncher
+	xivlauncher
       hydrapaper
-      pkgs-unstable.openrct2
+      #pkgs-unstable.openrct2
+	openrct2
       btop
       grafx2
       SDL
       SDL_mixer
       SDL2
       libGLU
-      pkgs-unstable.helix
+      #pkgs-unstable.helix
     ];
   };
 
@@ -247,7 +251,8 @@
 
     # Terminals
     alacritty
-    pkgs-unstable.alacritty-theme
+    #pkgs-unstable.alacritty-theme
+	alacritty-theme
     foot
 
     gparted
@@ -267,7 +272,7 @@
 
     blender
 
-	gnome3.gnome-tweaks
+	gnome-tweaks
 
 	neofetch
 	htop

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nixvim, ... }:
 {
 	home = {
 		username = "z3";
@@ -32,7 +32,7 @@
 			bibata-cursors
 			tokyo-night-gtk
 
-			gnome.gnome-themes-extra
+			gnome-themes-extra
 
 			lua
 			rustup
@@ -51,9 +51,13 @@
 		#./neovim.nix
 		./hyprland.nix
 		./gtk.nix
-		./nixvim.nix
+		nixvim.homeManagerModules.nixvim
+		./nixvim/nixvim.nix
 		#./gnome-settings.nix
 	];
+
+	# Nicely reload system units when changing configs
+	systemd.user.startServices = "sd-switch";
 
 	programs.direnv = {
 		enable = true;
