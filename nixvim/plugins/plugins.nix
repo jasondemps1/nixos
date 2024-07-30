@@ -3,6 +3,7 @@
     ./nix.nix
     ./better-escape.nix
     ./cmp.nix
+    ./dashboard.nix
     ./debug.nix
     ./formatting.nix
     ./git.nix
