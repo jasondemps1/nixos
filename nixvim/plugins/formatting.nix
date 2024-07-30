@@ -16,7 +16,8 @@
         cursorword = {};
         doc = {};
         extra = {};
-        #files = {};
+        files = {};
+        icons = {};
         indentscope = {};
         trailspace = {};
         misc = {};

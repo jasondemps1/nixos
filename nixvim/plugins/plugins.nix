@@ -3,15 +3,15 @@
     ./nix.nix
     ./better-escape.nix
     ./cmp.nix
-    ./dashboard.nix
+    #./dashboard.nix
     ./debug.nix
     ./formatting.nix
     ./git.nix
     ./filetree.nix
-    ./telescope.nix
     ./lsp.nix
     ./statusline.nix
     ./surround.nix
+    ./telescope.nix
     ./undotree.nix
     ./todo-comments.nix
     ./which-key.nix

@@ -63,6 +63,19 @@
 
     lspsaga = {
       enable = true;
+
+      ui = {
+        devicon = false;
+      };
+
+      lightbulb = {
+        sign = false;
+        #enable = false;
+      };
+    };
+
+    lspkind = {
+      enable = true;
     };
 
     lsp-format = {

@@ -14,7 +14,9 @@
         })
         {
           # Open Neotree
-          "<leader>\\" = ":Neotree<CR>";
+          #"<leader>\\" = ":Neotree<CR>";
+          "<leader>\\" = ":lua MiniFiles.open()<CR>";
+
 
           # Esc to clear search results
           "<esc>" = ":noh<CR>";
