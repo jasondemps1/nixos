@@ -2,8 +2,11 @@
   imports = [
     ./nix.nix
     ./better-escape.nix
+    ./cmp.nix
+    ./debug.nix
+    ./formatting.nix
+    ./git.nix
     ./neotree.nix
-    ./mini.nix
     ./telescope.nix
     ./lsp.nix
     ./surround.nix
