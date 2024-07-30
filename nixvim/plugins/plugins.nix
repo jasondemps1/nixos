@@ -10,5 +10,6 @@
     ./undotree.nix
     ./todo-comments.nix
     ./which-key.nix
+    ./zen.nix
   ];
 }
