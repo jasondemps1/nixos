@@ -170,6 +170,8 @@
     extraGroups = [ "wheel" "input" "networkmanager" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      pkgs-unstable.git-credential-manager
+      #pkgs-unstable.neovim
       firefox
       brave
       tree
@@ -190,8 +192,9 @@
       k9s
       dbeaver-bin
       unityhub
-      jetbrains-toolbox
-      dotnetCorePackages.sdk_6_0
+      pkgs-unstable.jetbrains-toolbox
+      #dotnetCorePackages.sdk_6_0
+      dotnetCorePackages.sdk_8_0
       dotnetPackages.Nuget
       mono
       msbuild
@@ -201,6 +204,17 @@
       audacity
       pkgs-unstable.gleam
       erlang_27
+      filezilla
+      pkgs-unstable.xivlauncher
+      hydrapaper
+      pkgs-unstable.openrct2
+      btop
+      grafx2
+      SDL
+      SDL_mixer
+      SDL2
+      libGLU
+      pkgs-unstable.helix
     ];
   };
 
@@ -226,7 +240,6 @@
   environment.systemPackages = with pkgs; [
     home-manager
     vim
-    neovim
     wget
     steam
     go
@@ -234,6 +247,7 @@
 
     # Terminals
     alacritty
+    pkgs-unstable.alacritty-theme
     foot
 
     gparted
@@ -264,6 +278,9 @@
 
     linuxKernel.packages.linux_latest_libre.veikk-linux-driver
     veikk-linux-driver-gui
+
+    pkg-config
+    fontconfig
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

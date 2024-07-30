@@ -8,6 +8,11 @@
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,8 +37,9 @@
 	};
       };
       inherit system;
-      modules = [ 
-	./configuration.nix 
+      modules = [
+	./configuration.nix
+	inputs.nixvim.nixosModules.nixvim
 	disko.nixosModules.disko
       ];
     };

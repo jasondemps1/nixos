@@ -2,8 +2,15 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      window.opacity = 0.85;
-      window.blur = true;
+      #import = [
+      #  "~/.config/alacritty/themes/themes/tokyo-night.toml"
+      #];
+
+      window = {
+        blur = true;
+        opacity = 0.95;
+        dynamic_title = true;
+      };
 
       font = {
         size = 13.0;
@@ -15,6 +22,7 @@
       };
 
       colors.primary.background = "#1d2021";
+      selection.save_to_clipboard = true;
     };
   };
 }
