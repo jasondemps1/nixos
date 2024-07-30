@@ -7,7 +7,7 @@
     ./debug.nix
     ./formatting.nix
     ./git.nix
-    ./neotree.nix
+    ./filetree.nix
     ./telescope.nix
     ./lsp.nix
     ./statusline.nix

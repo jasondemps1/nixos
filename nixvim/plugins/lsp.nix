@@ -1,6 +1,5 @@
 {
   programs.nixvim.plugins = {
-
     treesitter = {
       enable = true;
       nixvimInjections = true;
@@ -62,7 +61,15 @@
       };
     };
 
+    lspsaga = {
+      enable = true;
+    };
+
     lsp-format = {
+      enable = true;
+    };
+
+    trouble = {
       enable = true;
     };
   };
