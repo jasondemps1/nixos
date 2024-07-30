@@ -1,6 +1,7 @@
 {
   imports = [
     ./nix.nix
+    ./better-escape.nix
     ./neotree.nix
     ./telescope.nix
     ./lsp.nix
