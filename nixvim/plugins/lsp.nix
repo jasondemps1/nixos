@@ -5,11 +5,36 @@
       enable = true;
       nixvimInjections = true;
       folding = true;
-      indent = true;
+      settings = {
+        auto_install = true;
+        highlight = {
+          additional_vim_regex_highlighting = true;
+          custom_captures = { };
+          disable = [
+          ];
+          enable = true;
+        };
+        indent = {
+          enable = true;
+        };
+      };
+    };
+
+    treesitter-context = {
+      enable = true;
     };
 
     treesitter-refactor = {
       enable = true;
+      highlightCurrentScope = {
+        enable = true;
+      };
+      navigation = {
+        enable = true;
+      };
+      smartRename = {
+        enable = true;
+      };
       highlightDefinitions = {
         enable = true;
         # Set to false if you have an `updatetime` of ~100.
@@ -46,10 +71,10 @@
         gleam.enable = true;
         gopls.enable = true;
         html.enable = true;
-        htm.enable = true;
+        htmx.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
-        nil_ls.enable = true;
+        nil-ls.enable = true;
         pyright.enable = true;
       };
     };
