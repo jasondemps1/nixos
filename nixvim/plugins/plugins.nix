@@ -9,6 +9,7 @@
     ./neotree.nix
     ./telescope.nix
     ./lsp.nix
+    ./statusline.nix
     ./surround.nix
     ./undotree.nix
     ./todo-comments.nix
