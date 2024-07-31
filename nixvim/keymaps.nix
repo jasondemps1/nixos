@@ -17,6 +17,9 @@
           #"<leader>\\" = ":Neotree<CR>";
           "<leader>\\" = ":lua MiniFiles.open()<CR>";
 
+          #"<leader>lA" = ":lua vim.lsp.buf.code_action()<CR>";
+          #"<leader>fR" = ":lua vim.lsp.buf.references<CR>";
+          #"<leader>fd" = ":lua vim.lsp.buf.definition<CR>";
 
           # Esc to clear search results
           "<esc>" = ":noh<CR>";
@@ -35,10 +38,10 @@
           #"<C-s>" = ":w<CR>";
 
           # navigate windows
-          "<leader>h" = "<C-w>h";
-          "<leader>j" = "<C-w>j";
-          "<leader>k" = "<C-w>k";
-          "<leader>l" = "<C-w>l";
+          #"<leader>h" = "<C-w>h";
+          #"<leader>j" = "<C-w>j";
+          #"<leader>k" = "<C-w>k";
+          #"<leader>l" = "<C-w>l";
 
           # resize with arrows
           #"<C-Up>" = ":resize -2<CR>";

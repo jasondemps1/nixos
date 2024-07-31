@@ -9,8 +9,7 @@
         highlight = {
           additional_vim_regex_highlighting = true;
           custom_captures = { };
-          disable = [
-          ];
+          disable = [ ];
           enable = true;
         };
         indent = {
@@ -45,8 +44,28 @@
 
     lsp = {
       enable = true;
+      #keymaps = {
+      #  extra = [
+      #    {
+      #      #action = {
+      #      #  __raw = "require('telescope.builtin').lsp_definitions()";
+      #      #};
+      #      #key = "fd";
+      #      action = "<CMD>vim.lsp.buf.definition<CR>";
+      #      key = "<leader>fd";
+      #    }
+      #  ];
+        #lspBuf = {
+          #la = "code_action";
+          #fR = "references";
+          #fd = "definition";
+        #};
+      #};
       servers = {
-        csharp-ls.enable = true;
+        csharp-ls = {
+          enable = true;
+          #rootDir = lspconfig.util.root_pattern("*.git");
+        };
         docker-compose-language-service.enable = true;
         dockerls.enable = true;
         gdscript.enable = true;
@@ -61,19 +80,6 @@
       };
     };
 
-    lspsaga = {
-      enable = true;
-
-      ui = {
-        devicon = false;
-      };
-
-      lightbulb = {
-        sign = false;
-        #enable = false;
-      };
-    };
-
     lspkind = {
       enable = true;
     };
@@ -84,6 +90,9 @@
 
     trouble = {
       enable = true;
+      settings = {
+        auto_close = true;
+      };
     };
   };
 }

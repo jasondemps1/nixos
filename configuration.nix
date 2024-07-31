@@ -166,9 +166,7 @@
     extraGroups = [ "wheel" "input" "networkmanager" "audio" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      #pkgs-unstable.git-credential-manager
-	git-credential-manager
-      #pkgs-unstable.neovim
+	    git-credential-manager
       firefox
       brave
       tree
@@ -180,45 +178,40 @@
       tree-sitter
       krita
       aseprite
-      #pkgs-unstable.reaper
-	reaper
+	    reaper
       lmms
       sbcl
-      #pkgs-unstable.vscode
-	vscode
+	    vscode
       gimp
       k3s
       k9s
       dbeaver-bin
       unityhub
-      #pkgs-unstable.jetbrains-toolbox
-	jetbrains-toolbox
-      #dotnetCorePackages.sdk_6_0
-      dotnetCorePackages.sdk_8_0
+	    jetbrains-toolbox
+      #dotnetCorePackages.sdk_8_0
+      dotnet-sdk_8
+      dotnet-runtime_8
       dotnetPackages.Nuget
+      csharp-ls
       mono
       msbuild
-      #pkgs-unstable.obsidian
-	obsidian
+	    obsidian
       xdg-desktop-portal-hyprland
       obs-studio
       audacity
-      #pkgs-unstable.gleam
-	gleam
+	    gleam
       erlang_27
       filezilla
-      #pkgs-unstable.xivlauncher
-	xivlauncher
+	    xivlauncher
       hydrapaper
-      #pkgs-unstable.openrct2
-	openrct2
+	    openrct2
       btop
       grafx2
       SDL
       SDL_mixer
       SDL2
       libGLU
-      #pkgs-unstable.helix
+      luajitPackages.luarocks-nix
     ];
   };
 

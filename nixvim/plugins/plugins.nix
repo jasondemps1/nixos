@@ -9,6 +9,7 @@
     ./git.nix
     ./filetree.nix
     ./lsp.nix
+    ./lspsaga.nix
     ./statusline.nix
     ./surround.nix
     ./telescope.nix
