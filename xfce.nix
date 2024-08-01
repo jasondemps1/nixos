@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   services.xserver = {
-    desktopManager.xfce4 = {
+    desktopManager.xfce = {
       enable = true;
       noDesktop = true;
       enableXfwm = false;
@@ -10,7 +10,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    xfce4.xfwm4-themes
-    xfce4.thunar
+    xfce.xfwm4-themes
+    xfce.thunar
   ];
 }

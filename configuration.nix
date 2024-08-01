@@ -11,7 +11,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./disko-config.nix
-      ./xfce.nix
+      #./i3.nix
+      #./xfce.nix
     ];
 
   # Set kernel version
@@ -272,6 +273,7 @@
     fontconfig
 
     usbutils
+    arandr
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
