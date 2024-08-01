@@ -11,7 +11,11 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./disko-config.nix
+      ./xfce.nix
     ];
+
+  # Set kernel version
+  boot.kernelPackages = pkgs.linuxPackages_zen; #6_10;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -84,13 +88,13 @@
     #package = config.boot.kernelPackages.nvidiaPackages.latest;
     # Right now, explicitly get 555.58
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-	version = "555.58.02";
-	sha256_64bit = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
-	sha256_aarch64 = "sha256-wb20isMrRg8PeQBU96lWJzBMkjfySAUaqt4EgZnhyF8=";
-	openSha256 = "sha256-8hyRiGB+m2hL3c9MDA/Pon+Xl6E788MZ50WrrAGUVuY=";
-	settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
-	persistencedSha256 = "sha256-a1D7ZZmcKFWfPjjH1REqPM5j/YLWKnbkP9qfRyIyxAw=";
-    	};
+      version = "555.58.02";
+      sha256_64bit = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
+      sha256_aarch64 = "sha256-wb20isMrRg8PeQBU96lWJzBMkjfySAUaqt4EgZnhyF8=";
+      openSha256 = "sha256-8hyRiGB+m2hL3c9MDA/Pon+Xl6E788MZ50WrrAGUVuY=";
+      settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+      persistencedSha256 = "sha256-a1D7ZZmcKFWfPjjH1REqPM5j/YLWKnbkP9qfRyIyxAw=";
+    };
   };
 
   # Enable the GNOME Desktop Environment.
@@ -98,15 +102,9 @@
   services.xserver.desktopManager.gnome.enable = true;
   programs.dconf.enable = true;
 
-  # Video Acceleration
-  #hardware.opengl.extraPackets = [];
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   services.fstrim.enable = true;
 
@@ -122,24 +120,19 @@
     pulse.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-
-
   # Enable docker
   virtualisation = {
     docker = {
       enable = true;
       storageDriver = "btrfs";
       rootless = {
-	enable = true;
-	setSocketVariable = true;
+	      enable = true;
+	      setSocketVariable = true;
       };
     };
    };
 
   users.extraGroups.docker.members = [ "z3" ];
-
 
   # Kubernetes (k3s)
   networking.firewall = {
@@ -188,7 +181,6 @@
       dbeaver-bin
       unityhub
 	    jetbrains-toolbox
-      #dotnetCorePackages.sdk_8_0
       dotnet-sdk_8
       dotnet-runtime_8
       dotnetPackages.Nuget
@@ -203,7 +195,6 @@
       erlang_27
       filezilla
 	    xivlauncher
-      hydrapaper
 	    openrct2
       btop
       grafx2
@@ -212,6 +203,8 @@
       SDL2
       libGLU
       luajitPackages.luarocks-nix
+      helix
+      zed-editor
     ];
   };
 
@@ -227,7 +220,6 @@
   programs.hyprlock.enable = false; #true;
   security.pam.services.hyprlock = {};
   services.hypridle.enable = false; #true;
-  
 
   # Turn on Sway ( Need Polkit for home-manager Sway config )
   security.polkit.enable = true;
@@ -244,8 +236,7 @@
 
     # Terminals
     alacritty
-    #pkgs-unstable.alacritty-theme
-	alacritty-theme
+	  alacritty-theme
     foot
 
     gparted
@@ -265,20 +256,22 @@
 
     blender
 
-	gnome-tweaks
+	  gnome-tweaks
 
-	neofetch
-	htop
-	gtop
-	fzf
-	fd
-	ripgrep
+	  neofetch
+	  htop
+	  gtop
+	  fzf
+	  fd
+	  ripgrep
 
     linuxKernel.packages.linux_latest_libre.veikk-linux-driver
     veikk-linux-driver-gui
 
     pkg-config
     fontconfig
+
+    usbutils
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -286,10 +279,10 @@
   programs.nix-ld.enable = true;
 
   programs.steam = {
-	enable = true;
-	remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-	dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-	localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+	  enable = true;
+	  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+	  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+	  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

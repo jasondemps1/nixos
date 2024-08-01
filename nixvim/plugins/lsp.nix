@@ -62,10 +62,24 @@
         #};
       #};
       servers = {
-        csharp-ls = {
-          enable = true;
-          #rootDir = lspconfig.util.root_pattern("*.git");
-        };
+        #csharp-ls = {
+        #  enable = true;
+        #  #rootDir = ''
+        #  #  function()
+        #  #    lspconfig.util.root_pattern("*.git");
+        #  #  end
+        #  #'';
+        #  #rootDir = ''
+        #  #  function()
+        #  #    vim.fs.root(0, {".git"})
+        #  #  end
+        #  #'';
+        #  rootDir = ''
+        #    function()
+        #      return "/home/z3/Projects/games/daedalus"
+        #    end
+        #  '';
+        #};
         docker-compose-language-service.enable = true;
         dockerls.enable = true;
         gdscript.enable = true;
@@ -76,6 +90,19 @@
         jsonls.enable = true;
         lua-ls.enable = true;
         nil-ls.enable = true;
+        omnisharp = {
+          enable = true;
+
+          rootDir = ''
+            function()
+              return "/home/z3/Projects/games/daedalus"
+            end
+          '';
+
+          settings = {
+            organizeImportsOnFormat = true;
+          };
+        };
         pyright.enable = true;
       };
     };

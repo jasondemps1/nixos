@@ -5,10 +5,24 @@
     wofi
     dunst
     pavucontrol
+    hyprpaper
+    hypridle
   ];
+
+  #environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  #environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+
+  home.sessionVariables = {
+    GBM_BACKEND="nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME= "nvidia";
+    LIBVA_DRIVER_NAME= "nvidia"; # hardware acceleration
+    CLUTTER_BACKEND = "wayland";
+    WLR_RENDERER = "vulkan";
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = true;
 
     settings = {
       "$mod" = "SUPER";
