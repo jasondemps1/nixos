@@ -54,7 +54,7 @@
   };
 
   home.file = {
-    ".screenlayout/monitor.sh".source = ../config/desktop-randr.sh;
+    ".screenlayout/monitor.sh".source = config/desktop-randr.sh;
   };
 
   #services.screen-locker = {
