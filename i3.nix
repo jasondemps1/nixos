@@ -10,10 +10,12 @@
     xautolock
     i3lock
     dunst
+    pywal # Generator color scheme from wallpaper
     #picom
     xbindkeys
     xorg.xev
     xorg.xfontsel
+    xorg.xdpyinfo
     flameshot
     scrot
     polybar
@@ -21,30 +23,23 @@
     xsel
     feh
     arandr
+    alsa-utils
   ];
 
   xsession.windowManager.i3 = {
     enable = true;
     config = lib.mkForce null; # ignore all home-manager's default i3 config
     extraConfig = builtins.readFile config/i3/i3-config;
-    #config = {
-    #  assigns = {
-    #    "5: steam" = [{class = "^Steam"; }];
-    #  };
-    #  terminal = "alacritty";
+    #config = rec {
+    ##  assigns = {
+    ##    "5: steam" = [{class = "^Steam"; }];
+    ##  };
     #  modifier = "Mod4";
-    #  gaps = {
-    #    inner = 10;
-    #    outer = 5;
+    #  keybindings = lib.mkOptionDefault {
+    #    "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show combi -modes combi -combi-modes 'window,drun,run';
     #  };
-    #  floating = {
-    #    criteria = [
-    #      {
-    #        class = "Pavucontrol";
-    #      }
-    #    ];
-    #  };
-    #};
+    #  startup = [
+    #  ];
   };
 
   #xdg.configFile = {
@@ -58,6 +53,12 @@
 
   home.file = {
     ".screenlayout/desktop.sh".source = config/desktop-randr.sh;
+
+    ".config/polybar" = {
+      source = config/polybar;
+      recursive = true;
+      executable = true;
+    };
   };
 
   #services.screen-locker = {

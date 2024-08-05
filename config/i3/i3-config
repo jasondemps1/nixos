@@ -1,4 +1,5 @@
-font pango:monospace 8.000000
+#font pango:monospace 8.000000
+font pango: IBM Plex Text SemiBold 10
 
 set $mod Mod4
 
@@ -9,7 +10,9 @@ gaps outer 3
 
 smart_gaps on
 
-hide_edge_borders none
+title_align center
+
+hide_edge_borders smart #none
 
 workspace_layout default
 
@@ -25,7 +28,7 @@ focus_on_window_activation smart
 mouse_warping output
 workspace_auto_back_and_forth no
 
-# bindsym $mod+d rofi -show combi -modes combi -combi-modes "window,drun,run"
+bindsym $mod+d exec "rofi -show combi -modes combi -combi-modes window,drun,run"
 
 # Switch to workspace
 bindsym $mod+0 workspace number 0
@@ -76,7 +79,6 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+Up focus up
 bindsym $mod+a focus parent
-#bindsym $mod+d exec /nix/store/mjmikkysk4vb4fqwdqz8gpyr0mccf3q9-dmenu-5.3/bin/dmenu_run
 
 # Split
 bindsym $mod+h split h
@@ -88,6 +90,9 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen toggle
+
+# Apps
+bindsym $mod+Shift+s exec flameshot gui
 
 # Resizing
 bindsym $mod+r mode resize
@@ -102,20 +107,26 @@ mode "resize" {
 
 ## Workspace Behavior ##
 
+set $ws1 "1: main"
+set $ws2 "2: left"
+set $ws3 "3: bottom"
 set $ws4 "4: games"
 set $ws5 "5: chat"
 set $ws9 "9: music"
 
 workspace $ws1 output DP-4
 workspace $ws2 output HDMI-0
+workspace $ws3 output USB-C-0
 workspace $ws5 output USB-C-0
 
 assign [class="steam"] $ws4
 assign [class="discord"] $ws5
-assign [class="spotify"] $ws9
-
+assign [class="Spotify"] $ws9
 
 ## Autostart applications ##
+#
+
+exec --no-startup-id sleep 1 && "feh --bg-fill --randomize ~/Pictures/wallpapers/*"
 
 exec --no-startup-id ~/.screenlayout/desktop.sh
 
@@ -139,24 +150,24 @@ client.background #ffffff
 
 ## Bar settings ##
 
-bar {
-  font pango:monospace 8.000000
-  mode dock
-  hidden_state hide
-  position bottom
-  status_command /nix/store/8xyam50jwb0xjc7x3d8k2478bq6zg1di-i3status-2.14/bin/i3status
-  i3bar_command /nix/store/bq6czbaa48b7w6n7ijjawm3npz3g0dwa-i3-4.23/bin/i3bar
-  workspace_buttons yes
-  strip_workspace_numbers no
-  tray_output primary
-  colors {
-    background #000000
-    statusline #ffffff
-    separator #666666
-    focused_workspace #4c7899 #285577 #ffffff
-    active_workspace #333333 #5f676a #ffffff
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace #2f343a #900000 #ffffff
-    binding_mode #2f343a #900000 #ffffff
-  }
-}
+#bar {
+#  font pango:monospace 8.000000
+#  mode dock
+#  hidden_state hide
+#  position bottom
+#  status_command /nix/store/8xyam50jwb0xjc7x3d8k2478bq6zg1di-i3status-2.14/bin/i3status
+#  i3bar_command /nix/store/bq6czbaa48b7w6n7ijjawm3npz3g0dwa-i3-4.23/bin/i3bar
+#  workspace_buttons yes
+#  strip_workspace_numbers no
+#  tray_output primary
+#  colors {
+#    background #000000
+#    statusline #ffffff
+#    separator #666666
+#    focused_workspace #4c7899 #285577 #ffffff
+#    active_workspace #333333 #5f676a #ffffff
+#    inactive_workspace #333333 #222222 #888888
+#    urgent_workspace #2f343a #900000 #ffffff
+#    binding_mode #2f343a #900000 #ffffff
+#  }
+#}
