@@ -8,6 +8,8 @@ set $mod Mod4
 gaps inner 6
 gaps outer 3
 
+gaps top 36
+
 smart_gaps on
 
 title_align center
@@ -171,3 +173,5 @@ client.background #ffffff
 #    binding_mode #2f343a #900000 #ffffff
 #  }
 #}
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

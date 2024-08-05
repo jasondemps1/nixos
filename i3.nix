@@ -10,7 +10,7 @@
     xautolock
     i3lock
     dunst
-    pywal # Generator color scheme from wallpaper
+    pastel # Generator color scheme from wallpaper
     #picom
     xbindkeys
     xorg.xev
@@ -18,7 +18,8 @@
     xorg.xdpyinfo
     flameshot
     scrot
-    polybar
+    polybarFull
+    polybar-pulseaudio-control
     rofi
     xsel
     feh

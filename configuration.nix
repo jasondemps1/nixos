@@ -227,6 +227,7 @@ services.displayManager = {
       zed-editor
       pyright
       black
+      material-icons
     ];
   };
 
@@ -255,6 +256,8 @@ services.displayManager = {
     steam
     go
     emacs
+
+    pulseaudio # for pactl
 
     # Terminals
     alacritty
