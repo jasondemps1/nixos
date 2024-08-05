@@ -22,6 +22,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   networking.hostName = "phalanx"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -46,7 +48,28 @@
   services.printing.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+
+    videoDrivers = [ "nvidia" ];
+
+    displayManager.gdm.enable = true;
+
+    windowManager.i3.enable = true;
+
+    #displayManager.lightdm.enable = true;
+    #displayManager.lightdm.greeters.slick.enable = true;
+    desktopManager.gnome.enable = true;
+    # Set xrandr settings for monitor layout
+    displayManager.setupCommands = ''
+      ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-5 --off --output USB-C-0 --mode 1920x1080 --pos 863x1080 --rotate normal
+        '';
+  };
+
+services.displayManager = {
+  defaultSession = "none+i3";
+};
+
 
   # Enable OpenGL
   hardware.graphics = {
@@ -56,8 +79,6 @@
   };
 
   # Proprietary Nvidia Drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
-
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
@@ -99,8 +120,6 @@
   };
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
   programs.dconf.enable = true;
 
   # Configure keymap in X11
@@ -148,7 +167,7 @@
     ];
   };
 
-  services.k3s.enable = true;
+  services.k3s.enable = false;
   services.k3s.role = "server";
   services.k3s.extraFlags = toString [
     # "--kubelet-arg=v=4" # Optionally add additional args to k3s
@@ -206,6 +225,8 @@
       luajitPackages.luarocks-nix
       helix
       zed-editor
+      pyright
+      black
     ];
   };
 

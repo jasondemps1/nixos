@@ -5,6 +5,9 @@
       #import = [
       #  "~/.config/alacritty/themes/themes/tokyo-night.toml"
       #];
+      env = {
+        TERM = "alacritty-direct";
+      };
 
       window = {
         blur = true;

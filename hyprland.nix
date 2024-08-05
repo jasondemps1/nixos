@@ -7,6 +7,8 @@
     pavucontrol
     hyprpaper
     hypridle
+    hyprcursor
+    nwg-displays
   ];
 
   #environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -27,6 +29,16 @@
     settings = {
       "$mod" = "SUPER";
 
+      env = [
+        "NIXOS_OZONE_WL,1"
+        "GDK_BACKEND,wayland"
+        "SDL_VIDEODRIVER,wayland"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "QT_QPA_PLATFORM,wayland"
+        "MOZ_WEBRENDER,1"
+        "MOZ_ENABLE_WAYLAND,1"
+      ];
+
       windowrule = 
         [
         ];
@@ -46,6 +58,10 @@
           "$mod, right, movefocus, r"
           "$mod, up, movefocus, u"
           "$mod, down, movefocus, d"
+
+          "$mod,Space,togglefloating"
+          "$mod,S,pseudo"
+
 
           # Switch workspaces with mainMod + [0-9]
           "$mod, 1, workspace, 1"
@@ -76,11 +92,17 @@
           "$mod, mouse_up, workspace, e-1"
         ];
 
+        bindm = [
+          # Move floaters with mouse
+          "$mod,mouse:272,movewindow"
+          "$mod,mouse:273,resizewindow"
+        ];
+
       monitor =
         [
-          "DP-3, 1920x1080, 0x0, 1"
-          "HDMI-A-1, 1920x1080, -1920x0, 1"
-          "Unknown-2, 1920x1080, 0x1080, 1"
+          "HDMI-A-1, preferred, -1920x0, 1"
+          "DP-3, preferred, 0x0, 1"
+          "Unknown-1, preferred, 0x1080, 1"
         ];
 
       dwindle = {
@@ -92,6 +114,11 @@
       exec-once = [
         "hyprctl setcursor Bibata-Modern-Classic 24"
       ];
+
+      cursor = {
+        no_hardware_cursors = true;
+        #allow_dumb_copy = true;
+      };
 
       exec = [
         "pkill waybar & sleep 0.5 && waybar"

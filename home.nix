@@ -1,9 +1,5 @@
 { pkgs, nixvim, ... }:
 {
-  services.xserver.displayManager.setupCommands = ''
-    ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-5 --off --output USB-C-0 --mode 1920x1080 --pos 863x1080 --rotate normal
-  '';
-
 	home = {
 		username = "z3";
 		homeDirectory = "/home/z3";
@@ -57,6 +53,7 @@
 		./gtk.nix
 		nixvim.homeManagerModules.nixvim
 		./nixvim/nixvim.nix
+    #./xfce.nix
     ./i3.nix
 		#./gnome-settings.nix
 	];
