@@ -10,8 +10,11 @@
     xautolock
     i3lock
     dunst
-    picom
+    #picom
     xbindkeys
+    xorg.xev
+    xorg.xfontsel
+    flameshot
     scrot
     polybar
     rofi
@@ -44,17 +47,17 @@
     #};
   };
 
-  xdg.configFile = {
-    "i3/scripts" = {
-      source = config/i3/scripts;
-      # Copy scripts directory recursively
-      recursive = true;
-      executable = true; # Make them executable
-    };
-  };
+  #xdg.configFile = {
+  #  "i3/scripts" = {
+  #    source = config/i3/scripts;
+  #    # Copy scripts directory recursively
+  #    recursive = true;
+  #    executable = true; # Make them executable
+  #  };
+  #};
 
   home.file = {
-    ".screenlayout/monitor.sh".source = config/desktop-randr.sh;
+    ".screenlayout/desktop.sh".source = config/desktop-randr.sh;
   };
 
   #services.screen-locker = {
