@@ -11,7 +11,8 @@
     i3lock
     dunst
     pastel # Generator color scheme from wallpaper
-    #picom
+    picom
+    zellij # Better Tmux
     xbindkeys
     xorg.xev
     xorg.xfontsel

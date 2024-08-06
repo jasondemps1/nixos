@@ -10,7 +10,7 @@ gaps outer 3
 
 gaps top 36
 
-smart_gaps on
+smart_gaps off
 
 title_align center
 
@@ -128,7 +128,10 @@ assign [class="Spotify"] $ws9
 ## Autostart applications ##
 #
 
-exec --no-startup-id sleep 1 && "feh --bg-fill --randomize ~/Pictures/wallpapers/*"
+exec_always --no-startup-id picom -b
+# Custom config: exec_always --no-startup-id picom --config ~/.config/picom.conf
+
+exec --no-startup-id feh --bg-fill --randomize ~/Pictures/wallpapers/*
 
 exec --no-startup-id ~/.screenlayout/desktop.sh
 
