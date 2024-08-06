@@ -263,6 +263,8 @@ services.displayManager = {
     alacritty
 	  alacritty-theme
     foot
+    kitty
+    warp-terminal
 
     gparted
 

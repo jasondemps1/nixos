@@ -42,6 +42,13 @@
 			fzf
 			tldr
 			ast-grep
+			# Some language servers and other stuff for editing, should move to own file
+			yaml-language-server
+			omnisharp-roslyn
+			docker-compose-language-service
+			dockerfile-language-server-nodejs
+			markdown-oxide
+			nixpkgs-fmt
 		];
 	};
 
