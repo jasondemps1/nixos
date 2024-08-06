@@ -68,6 +68,7 @@
     ./i3.nix
 		#./gnome-settings.nix
 		./yazi.nix
+		./kitty.nix
 	];
 
 	# Nicely reload system units when changing configs
