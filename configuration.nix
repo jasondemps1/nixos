@@ -13,7 +13,7 @@
       ./hardware-configuration.nix
       ./disko-config.nix
       #inputs.ucodenix.nixosModules.ucodenix
-      ./microcode.nix
+      #./microcode.nix
       #./i3.nix
       #./xfce.nix
     ];

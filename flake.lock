@@ -331,22 +331,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1722630782,
-        "narHash": "sha256-hMyG9/WlUi0Ho9VkRrrez7SeNlDzLxalm9FwY7n/Noo=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "d04953086551086b44b6f3c6b7eeb26294f207da",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixvim": {
       "inputs": {
         "devshell": "devshell",
@@ -403,8 +387,7 @@
         "home-manager": "home-manager",
         "nix-alien-input": "nix-alien-input",
         "nixpkgs": "nixpkgs_2",
-        "nixvim": "nixvim",
-        "ucodenix": "ucodenix"
+        "nixvim": "nixvim"
       }
     },
     "systems": {
@@ -455,24 +438,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "ucodenix": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
-      "locked": {
-        "lastModified": 1722904278,
-        "narHash": "sha256-0UnxTu+bbKffBgPBFBH3ATDvGM4cGvdHxDVygYV9ce8=",
-        "owner": "e-tho",
-        "repo": "ucodenix",
-        "rev": "672c3d981344f69e577233ce533a0f14f013834f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "e-tho",
-        "repo": "ucodenix",
         "type": "github"
       }
     }

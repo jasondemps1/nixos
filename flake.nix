@@ -23,8 +23,6 @@
       url = "github:thiagokokada/nix-alien";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ucodenix.url = "github:e-tho/ucodenix";
   };
   outputs = inputs@{ self, nixpkgs, nixvim, disko, home-manager, nix-alien-input, ... }: 
     let 
