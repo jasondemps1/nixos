@@ -7,6 +7,7 @@
     #i3lock
     #i3blocks
     #lxappearance
+    navi
     xautolock
     i3lock
     dunst
@@ -61,7 +62,9 @@
       recursive = true;
       executable = true;
     };
-  };
+
+    ".config/picom.conf".source = config/picom.conf;
+   };
 
   #services.screen-locker = {
     #enable = true;

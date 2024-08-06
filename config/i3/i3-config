@@ -19,7 +19,8 @@ hide_edge_borders smart #none
 workspace_layout default
 
 #new_window pixel 1
-default_border pixel 0
+#default_border pixel 0
+default_border pixel 4
 
 floating_modifier $mod
 default_border normal 2

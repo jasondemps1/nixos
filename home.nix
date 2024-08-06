@@ -88,7 +88,7 @@
   #   zi foo             # cd with interactive selection (using fzf)
   #
   #   z foo<SPACE><TAB>  # show interactive completions (zoxide v0.8.0+, bash 4.4+/fish/zsh only)
-  zoxide = {
+  programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
