@@ -11,6 +11,7 @@
 		sessionVariables = {
 
 		};
+
 		packages = with pkgs;
 		[
 			nil

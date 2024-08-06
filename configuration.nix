@@ -2,7 +2,8 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }: 
+{
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -11,11 +12,13 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./disko-config.nix
+      #inputs.ucodenix.nixosModules.ucodenix
+      ./microcode.nix
       #./i3.nix
       #./xfce.nix
     ];
 
-  # Set kernel version
+    # Set kernel version
   boot.kernelPackages = pkgs.linuxPackages_zen; #6_10;
 
   # Use the systemd-boot EFI boot loader.
@@ -61,9 +64,9 @@
     #displayManager.lightdm.greeters.slick.enable = true;
     desktopManager.gnome.enable = true;
     # Set xrandr settings for monitor layout
-    displayManager.setupCommands = ''
-      ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-5 --off --output USB-C-0 --mode 1920x1080 --pos 863x1080 --rotate normal
-        '';
+    #displayManager.setupCommands = ''
+    #  ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-5 --off --output USB-C-0 --mode 1920x1080 --pos 863x1080 --rotate normal
+    #    '';
   };
 
 services.displayManager = {
@@ -273,6 +276,7 @@ services.displayManager = {
     libtool
     nodejs
     (python3.withPackages (ps: with ps; [ requests ]))
+    poetry
 
     unzip
     p7zip
@@ -299,6 +303,9 @@ services.displayManager = {
 
     usbutils
     arandr
+
+    patchelfUnstable
+    cpuid
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
