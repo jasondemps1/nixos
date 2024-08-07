@@ -69,10 +69,18 @@
     #    '';
   };
 
-services.displayManager = {
-  defaultSession = "none+i3";
-};
+  services.displayManager = {
+    defaultSession = "none+i3";
+  };
 
+  # Sleep when power button pressed. Only Suspend
+  services.logind.powerKey = "suspend";
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    ALlowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
 
   # Enable OpenGL
   hardware.graphics = {

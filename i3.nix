@@ -54,6 +54,12 @@
     };
 
     ".config/picom.conf".source = config/picom.conf;
+
+    ".config/scripts" = {
+      source = config/scripts;
+      recursive = true;
+      executable = true;
+    };
    };
 
   #services.screen-locker = {

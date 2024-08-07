@@ -44,6 +44,7 @@
 			tldr
 			ast-grep
 			# Some language servers and other stuff for editing, should move to own file
+			bash-language-server
 			yaml-language-server
 			omnisharp-roslyn
 			docker-compose-language-service
