@@ -51,6 +51,7 @@
 			dockerfile-language-server-nodejs
 			markdown-oxide
 			nixpkgs-fmt
+			perlnavigator
 		];
 	};
 
